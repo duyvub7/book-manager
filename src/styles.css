@@ -1,0 +1,220 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/dist/css/bootstrap";
+@import "~font-awesome/css/font-awesome";
+@import "~sweetalert2\dist\sweetalert2";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text-bold {
+  font-weight: bold;
+}
+.text-italic {
+  font-style: italic;
+}
+.width-30 {
+  width: 30px;
+}
+.width-35 {
+  width: 35px;
+}
+.width-40 {
+  width: 40px;
+}
+.width-45 {
+  width: 45px;
+}
+.width-50 {
+  width: 50px;
+}
+.width-70 {
+  width: 70px;
+}
+.width-80 {
+  width: 80px;
+}
+.width-90 {
+  width: 90px;
+}
+.width-100 {
+  width: 100px;
+}
+.width-120 {
+  width: 120px;
+}
+.width-130 {
+  width: 130px;
+}
+.width-150 {
+  width: 150px;
+}
+.width-180 {
+  width: 180px;
+}
+.width-200 {
+  width: 200px;
+}
+.width-250 {
+  width: 250px;
+}
+.width-300 {
+  width: 300px;
+}
+.width-500 {
+  width: 500px;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.paging-display {
+  display: contents;
+}
+.line-height-5 {
+  line-height: 5px;
+}
+.line-height-10 {
+  line-height: 10px;
+}
+.line-height-15 {
+  line-height: 15px;
+}
+.line-height-20 {
+  line-height: 20px;
+}
+.line-height-23 {
+  line-height: 23px;
+}
+.line-height-30 {
+  line-height: 30px;
+}
+.line-height-40 {
+  line-height: 40px;
+}
+.line-height-50 {
+  line-height: 50px;
+}
+.pl-10 {
+  padding-left: 10px;
+}
+.pr-10 {
+  padding-right: 10px;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.mr-5 {
+  margin-right: 50px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-15 {
+  margin-right: 15px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.mb-5 {
+  margin-bottom: 5px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-25 {
+  margin-bottom: 25px;
+}
+.height-30 {
+  height: 30px;
+}
+.height-90 {
+  height: 90px;
+}
+.height-100 {
+  height: 100px;
+}
+.height-120 {
+  height: 120px;
+}
+.height-150 {
+  height: 150px;
+}
+.pagination-input input::-webkit-outer-spin-button,
+.pagination-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.invalid-message {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+.overflow {
+  overflow: auto;
+}
+.overflow-x {
+  overflow-x: auto;
+}
+.overflow-y {
+  overflow-y: auto;
+}
+.word-break {
+  word-break: break-all;
+}
+.height-20 {
+  height: 52vh;
+}
+.height-40 {
+  height: 40vh;
+}
+.height-45 {
+  height: 45vh;
+}
+.height-50 {
+  height: 50vh;
+}
+.text-link-hover {
+  color: rgb(0, 66, 247);
+  cursor: pointer;
+}
+.text-link-hover:hover {
+  text-decoration: underline;
+}
+.icon-sort {
+  color: #60666a;
+  line-height: 23px;
+}
+.icon-sort-active {
+  color: #093857;
+  line-height: 23px;
+}
+.icon-sort:hover,
+.icon-sort-active:hover {
+  color: #206c9e;
+}

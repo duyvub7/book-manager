@@ -1,0 +1,62 @@
+<div class="container">
+  <h3 class="text-center text-uppercase">Thêm loại sách mới</h3>
+  <form class="px-3 my-3" appAutoFocus #form="ngForm" [formGroup]="formValue" (submit)="submitFormAdd()">
+    <div class="row height-120">
+      <div class="form-group">
+        <label #it for="inputName" class="my-2">Tên loại sách<span class="text-danger"> *</span></label>
+        <input
+          type="text"
+          class="form-control"
+          #categoryName
+          formControlName="name"
+          placeholder="Nhập tên loại sách"
+          appAutoFocus
+          autocomplete="off"
+          [ngClass]="{
+            'is-valid': isValid('name'),
+            'is-invalid': (isExistedName === true || isInvalid('name'))
+          }"
+          (input)="isExistedName=false"
+          (keydown.Shift.Tab)="onShiftTabInputName();false"
+        />
+        <div *ngIf="isExistedName === true" class="invalid-message">Tên loại sách này đã tồn tại</div>
+        <div *ngIf="isExistedName === false && isInvalid('name')">
+          <message-validator field="Tên loại sách" [control]="formValue.get('name')"></message-validator>
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-25">
+      <label for="inputDesciption" class="my-2">Thông tin mô tả</label>
+      <textarea
+        class="form-control"
+        rows="9"
+        formControlName="description"
+        [ngClass]="{
+          'is-valid': isValid('description'),
+          'is-invalid': isInvalid('description')
+        }"
+      ></textarea>
+      <div *ngIf="isInvalid('description')">
+        <message-validator field="Thông tin mô tả" [control]="formValue.get('description')"></message-validator>
+      </div>
+    </div>
+    <div class="flex-between">
+      <div>
+        <button type="button" class="btn btn-primary" (click)="goBack()">
+          <i class="fa fa-arrow-left"></i> Quay lại
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-secondary mr-20" 
+          (click)="resetForm()">
+          <i class="fa fa-refresh"></i> Làm mới
+        </button>
+        <button type="submit" class="btn btn-primary"
+         #finalBtn (keydown.Tab)="onTabFinalButton();false">
+          <i class="fa fa-plus"></i> Thêm mới
+        </button>
+      </div>
+    </div>
+  </form>
+  <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+</div>

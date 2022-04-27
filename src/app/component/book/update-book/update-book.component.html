@@ -1,0 +1,170 @@
+<div class="container">
+  <h3 class="text-center text-uppercase">Cập nhật thông tin sách</h3>
+  <form class="px-3 my-3" appAutoFocus #form="ngForm" [formGroup]="formValue" (submit)="submitFormUpdate()">
+    <div class="row height-90">
+      <div class="col-6">
+        <div class="form-group">
+          <label #it for="inputName">Tên sách<span class="text-danger"> *</span></label>
+          <input
+            type="text"
+            class="form-control"
+            #bookName
+            formControlName="name"
+            placeholder="Nhập tên sách"
+            appAutoFocus
+            autocomplete="off"
+            [ngClass]="{
+              'is-valid': isValid('name'),
+              'is-invalid': (isBookNameDuplicate === true || isInvalid('name'))
+            }"
+            (input)="isBookNameDuplicate=false"
+            (keydown.Shift.Tab)="onShiftTabInputName();false"
+          />
+          <div 
+            *ngIf="isBookNameDuplicate === true" 
+            class="invalid-message">
+              Tên sách này đã tồn tại
+          </div>
+          <div *ngIf="isBookNameDuplicate === false && isInvalid('name')">
+            <message-validator field="Tên sách" [control]="formValue.get('name')"></message-validator>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputCategory">Thể loại<span class="text-danger"> *</span></label>
+          <select
+            class="form-control"
+            formControlName="categoryId"
+            [ngClass]="{
+              'is-valid': isValid('categoryId'),
+              'is-invalid': isInvalid('categoryId')
+            }"
+          >
+            <option
+              *ngFor="let category of listCategory"
+              value="{{ category.id }}"
+            >
+              {{ category.name }}
+            </option>
+          </select>
+          <div *ngIf="isInvalid('categoryId')">
+            <message-validator field="Thể loại" [control]="formValue.get('categoryId')"></message-validator>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row height-90">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputAuthor">Tác giả<span class="text-danger"> *</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="author"
+            placeholder="Nhập tên tác giả"
+            autocomplete="off"
+            [ngClass]="{
+              'is-valid': isValid('author'),
+              'is-invalid': isInvalid('author')
+            }"
+          />
+          <div *ngIf="isInvalid('author')">
+            <message-validator field="Tác giả" [control]="formValue.get('author')"></message-validator>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputPrice">Giá tiền (VNĐ)<span class="text-danger"> *</span></label>
+          <input
+            currencyMask
+            [options]="{align: 'left', prefix: '', suffix: '', thousands: '.', precision: 0}"
+            type="text"
+            class="form-control"
+            formControlName="price"
+            placeholder="Nhập giá tiền"
+            [ngClass]="{
+              'is-valid': isValid('price'),
+              'is-invalid': isInvalid('price')
+            }"
+          />
+          <div *ngIf="isInvalid('price')">
+            <message-validator field="Giá tiền" [control]="formValue.get('price')"></message-validator>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row height-90">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputPublishYear">Năm xuất bản<span class="text-danger"> *</span></label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="publishYear"
+            placeholder="Nhập năm xuất bản"
+            [ngClass]="{
+              'is-valid': isValid('publishYear'),
+              'is-invalid': isInvalid('publishYear')
+            }"
+          />
+          <div *ngIf="isInvalid('price')">
+            <message-validator field="Năm xuất bản" [control]="formValue.get('publishYear')"></message-validator>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="inputPublisher">Nhà xuất bản<span class="text-danger"> *</span></label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="publisher"
+            placeholder="Nhập tên nhà xuất bản"
+            autocomplete="off"
+            [ngClass]="{
+              'is-valid': isValid('publisher'),
+              'is-invalid': isInvalid('publisher')
+            }"
+          />
+          <div *ngIf="isInvalid('publisher')">
+            <message-validator field="Nhà xuất bản" [control]="formValue.get('publisher')"></message-validator>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-25">
+      <label for="inputDesciption">Giới thiệu</label>
+      <textarea
+        class="form-control"
+        rows="5"
+        formControlName="description"
+        [ngClass]="{
+          'is-valid': isValid('description'),
+          'is-invalid': isInvalid('description')
+        }"
+      ></textarea>
+      <div *ngIf="isInvalid('description')">
+        <message-validator field="Giới thiệu" [control]="formValue.get('description')"></message-validator>
+      </div>
+    </div>
+    <div class="flex-between">
+      <div>
+        <button type="button" class="btn btn-primary" (click)="goBack()">
+          <i class="fa fa-arrow-left"></i> Quay lại
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-secondary mr-20" (click)="refreshForm()">
+          <i class="fa fa-refresh"></i> Làm mới
+        </button>
+        <button type="submit" class="btn btn-success"
+          #finalBtn (keydown.Tab)="onTabFinalButton();false">
+          <i class="fa fa-pencil-square-o"></i> Cập nhật
+        </button>
+      </div>
+    </div>
+  </form>
+  <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+</div>

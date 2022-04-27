@@ -1,0 +1,43 @@
+<div class="container">
+  <h3 class="text-center">Xem thông tin sách</h3>
+  <div>
+    <p class="word-break"><strong>Tên sách:</strong> {{book.name}}</p>
+  </div>
+  <div>
+    <p><strong>Thể loại:</strong> {{book.categoryName}}</p>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p><strong>Tác giả::</strong> {{book.author}}</p>
+    </div>
+    <div class="col-6">
+      <p><strong>Giá:</strong> {{book.price}} VND</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p><strong>Nhà xuất bản:</strong> {{book.publisher}}</p>
+    </div>
+    <div class="col-6">
+      <p><strong>Năm xuất bản:</strong> {{book.publishYear}}</p>
+    </div>
+  </div>
+  <div>
+    <p><strong>Giới thiệu:</strong> {{book.description}}</p>
+  </div>
+  <div class="flex-between">
+    <div>
+      <button type="button" class="btn btn-success mr-20" (click)="onClickEdit(book.id)">
+        <i class="fa fa-pencil-square-o"></i> Chỉnh sửa
+      </button>
+      <button type="button" class="btn btn-danger" (click)="onClickDelete(book.id)">
+        <i class="fa fa-trash-o"></i> Xóa sách
+      </button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="goToList()">
+        <i class="fa fa-arrow-left"></i> Quay lại danh sách
+      </button>
+    </div>
+  </div>
+</div>

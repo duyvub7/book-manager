@@ -1,0 +1,47 @@
+<nav id="sidebar" class="sidebar sidebar-bg">
+  <perfect-scrollbar>
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <a routerLink="/book-dashboard">BOOK MANAGEMENT</a>
+      </div>
+
+      <div class="sidebar-menu">
+        <ul>
+          <li
+            *ngFor="let menu of menus"
+            [ngClass]="{
+              open: menu.open,
+              'sidebar-dropdown': menu.type === 'dropdown',
+              'sidebar-simple': menu.type === 'simple',
+              'header-menu': menu.type === 'header'
+            }"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+          >
+            <span *ngIf="menu.type === 'header'">{{ menu.title }}</span>
+            <a *ngIf="menu.type === 'simple'" routerLinkActive="active" routerLink="{{menu.routeLink}}">
+              <i class="{{ menu.icon }}"></i>
+              <span>{{ menu.title | uppercase }}</span>
+            </a>
+            <a *ngIf="menu.type === 'dropdown'" (click)="toggle(menu)">
+              <i class="{{ menu.icon }}"></i>
+              <span>{{ menu.title | uppercase }}</span>
+            </a>
+            <div
+              *ngIf="menu.type === 'dropdown'"
+              class="sidebar-submenu"
+              [@slide]="getState(menu)"
+            >
+              <ul>
+                <li *ngFor="let submenu of menu.submenus">
+                  <a routerLinkActive="active" routerLink="{{submenu.routeLink}}">
+                    {{ submenu.title }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </perfect-scrollbar>
+</nav>

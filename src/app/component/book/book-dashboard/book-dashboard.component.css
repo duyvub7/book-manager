@@ -1,0 +1,28 @@
+.table-header {
+  background-color: rgb(154, 199, 207);
+}
+
+.table-scroll-body > tbody {
+  overflow-y: scroll;
+  max-height: 55vh;
+}
+
+.table-scroll-body > thead,
+.table-scroll-body > tbody {
+  display: block;
+}
+
+.table-scroll-body > tbody > tr:after,
+.table-scroll-body > thead > tr:after {
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+td > div {
+  line-height: 40px;
+}

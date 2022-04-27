@@ -1,0 +1,28 @@
+.topnav-img {
+  width: 30px;
+}
+.sidebar-profile {
+  padding: 0px;
+  overflow: hidden;
+  margin-right: 2vw;
+}
+.sidebar-profile .user-pic {
+  float: left;
+  width: 35px;
+  border-radius: 50%;
+  margin-top: 3px;
+  margin-right: 5px;
+  overflow: hidden;
+}
+.sidebar-profile .user-pic img {
+  height: 100%;
+  width: 100%;
+}
+.sidebar-profile .user-info {
+  float: left;
+}
+.sidebar-profile .user-info > p {
+  display: block;
+  line-height: 40px;
+  margin-bottom: 0px;
+}

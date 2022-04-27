@@ -1,0 +1,47 @@
+.table-header {
+  background-color: rgb(154, 199, 207);
+}
+
+.table-scroll-body > tbody {
+  overflow-y: scroll;
+  max-height: 45vh;
+}
+
+.table-scroll-body > thead,
+.table-scroll-body > tbody {
+  display: block;
+}
+
+.table-scroll-body > tbody > tr:after,
+.table-scroll-body > thead > tr:after {
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+td > div {
+  line-height: 40px;
+}
+
+.row-15 {
+  width: 15vw;
+}
+.row-20 {
+  width: 20vw;
+}
+.row-30 {
+  width: 30vw;
+}
+.row-35 {
+  width: 35vw;
+}
+.row-40 {
+  width: 40vw;
+}
+.row-50 {
+  width: 50vw;
+}
